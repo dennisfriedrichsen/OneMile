@@ -25,7 +25,7 @@ actor WikipediaPlaceProvider: InterestingPlaceProviding {
             throw PlaceProviderError.noInterestingPlaces
         }
         var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 15)
-        request.setValue("OneMile/1.0 (iOS; com.dennisfriedrichsen.OneMile)", forHTTPHeaderField: "User-Agent")
+        request.setValue("OneMile/1.0 (iOS; com.friedrichsenweb.OneMile)", forHTTPHeaderField: "User-Agent")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         let (data, response) = try await session.data(for: request)
         guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
